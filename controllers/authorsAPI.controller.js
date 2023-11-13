@@ -29,7 +29,11 @@ const putAuthor = async (req, res) => {
 const deleteAuthor = async (req, res) => {
     const deletedAuthor = req.body; // {title,content,email,category}
     const response = await authors.deleteAuthor(deletedAuthor);//esto accede a entries.models y llama a esa funcion allí
-    res.status(200).json({message: `se ha borrado: ${response.email}`});
+    if (response.message) {
+        res.status(200).json(response);   
+    } else {
+        res.status(200).json({message: `se ha borrado: ${response.email}`});
+    }
 }
 
 module.exports = {

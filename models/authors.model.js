@@ -73,7 +73,7 @@ const deleteAuthor = async (author) => {
         result = data.rowCount
     } catch (err) {
         console.log(err);
-        throw err;
+        return { message: err};
     } finally {
         client.release();
     }
