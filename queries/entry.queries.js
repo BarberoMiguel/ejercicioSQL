@@ -1,4 +1,4 @@
-const queries = {
+const entryQueries = {
     getEntriesByEmail: `
     SELECT e.title,e.content,e.date,e.category,a.name,a.surname,a.image
     FROM entries AS e
@@ -19,15 +19,5 @@ const queries = {
     VALUES ($1,$2,
     (SELECT id_author FROM authors WHERE email=$3),$4)`,
     deleteEntry: `DELETE FROM entries WHERE title =$1`,
-    getAllAuthors: `SELECT * FROM authors;`,
-    getAuthorsByEmail: `SELECT * FROM authors WHERE email=$1;`,
-    postAuthor: `INSERT INTO authors(name,surname,email,image) 
-    VALUES ($1,$2,$3,$4);`,
-    updateAuthor: `UPDATE authors
-    SET name =$1, surname =$2, image =$4
-    WHERE email =$3`,
-    deleteAuthor: `DELETE FROM authors WHERE email =$1`,
 }
-module.exports = queries;
-
-// el $ es un hueco, es un parámetro
+module.exports = entryQueries;

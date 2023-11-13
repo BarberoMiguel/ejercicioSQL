@@ -1,12 +1,12 @@
 const express = require('express');
 // Rutas de productos
-const entriesApiController = require("../controllers/entriesAPI.controller");
+const authorsApiController = require("../controllers/authorsAPI.controller");
 const authorsApiRouter = express.Router();
 
-authorsApiRouter.get('', entriesApiController.getAuthors);
-authorsApiRouter.post('', entriesApiController.postAuthor);
-authorsApiRouter.put('', entriesApiController.putAuthor);
-authorsApiRouter.delete('', entriesApiController.deleteAuthor);
+authorsApiRouter.get('', authorsApiController.getAuthors);
+authorsApiRouter.post('', authorsApiController.postAuthor);
+authorsApiRouter.put('', authorsApiController.putAuthor);
+authorsApiRouter.delete('', authorsApiController.deleteAuthor);
 
 module.exports = authorsApiRouter;
 
